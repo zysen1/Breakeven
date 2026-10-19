@@ -1,0 +1,710 @@
+{
+  "command": "breakeven demo --cases 2000 --seed 7 --target 0.95 --reps 1000 --boot 400",
+  "seed": 7,
+  "n_cases": 2000,
+  "n_calibration": 1200,
+  "n_holdout": 800,
+  "split_fraction": 0.6,
+  "stratified": "category",
+  "target_reliability": 0.95,
+  "confidence_level": 0.95,
+  "human_accuracy": 1.0,
+  "cost": {
+    "currency": "USD",
+    "hourly_rate": 55.0,
+    "hours_per_case_human": 0.2,
+    "hours_per_review": 0.25,
+    "hours_per_exception": 0.5,
+    "hours_per_correction": 1.6,
+    "hours_per_audit": 0.2,
+    "hours_per_dual_review": 0.5,
+    "maintenance_hours": 16.0,
+    "human_maintenance_hours": 0.0,
+    "model_cost_per_case": 0.0,
+    "human_accuracy": 1.0
+  },
+  "agents": {
+    "brash": {
+      "name": "Brash",
+      "summary": "Higher accuracy. Confidence does not know when it is wrong.",
+      "accuracy": 0.88,
+      "n_correct": 1760,
+      "n": 2000,
+      "status": "reliability_only",
+      "policy_id": "sample_audit:p=1.00",
+      "policy": "Sample audit 100%",
+      "family": "sample_audit",
+      "params": {
+        "p": 1.0,
+        "salt": "brash:7"
+      },
+      "calibration_lcb": 0.9975066699624814,
+      "holdout_n": 800,
+      "holdout_successes": 800,
+      "reliability": 1.0,
+      "lcb": 0.9962623371738993,
+      "wilson_lcb": 0.9966294695780308,
+      "automation_rate": 0.0,
+      "human_touch_rate": 1.0,
+      "miss_rate": 0.0,
+      "hours": 416.0,
+      "baseline_hours": 400.0,
+      "hours_ratio": 1.04,
+      "dollars": 22880.0,
+      "baseline_dollars": 22000.0,
+      "savings_dollars": -880.0,
+      "savings_hours": -16.0,
+      "breakeven_cases": null,
+      "bootstrap_savings_dollars_p05": -880.0,
+      "bootstrap_savings_dollars_p95": -880.0,
+      "a_h_min": 0.95,
+      "lcb_by_human_accuracy": {
+        "1.00": 0.9962623371738993,
+        "0.98": 0.98,
+        "0.95": 0.95,
+        "0.90": 0.9
+      },
+      "assertions": {
+        "agent_n": 800,
+        "agent_violations": 34,
+        "agent_rate": 0.0425,
+        "agent_upper": 0.056181452564655655,
+        "residual_n": 0,
+        "residual_violations": 0,
+        "residual_rate": 0.0,
+        "residual_upper": 0.0
+      },
+      "calibration_categories": [
+        {
+          "category": "auto_collision",
+          "n": 420,
+          "correct": 362,
+          "accuracy": 0.861904761904762
+        },
+        {
+          "category": "health",
+          "n": 240,
+          "correct": 215,
+          "accuracy": 0.8958333333333334
+        },
+        {
+          "category": "liability",
+          "n": 150,
+          "correct": 137,
+          "accuracy": 0.9133333333333333
+        },
+        {
+          "category": "property",
+          "n": 300,
+          "correct": 260,
+          "accuracy": 0.8666666666666667
+        },
+        {
+          "category": "travel",
+          "n": 90,
+          "correct": 80,
+          "accuracy": 0.8888888888888888
+        }
+      ],
+      "book_categories": [
+        {
+          "category": "auto_collision",
+          "n": 700,
+          "correct": 612,
+          "accuracy": 0.8742857142857143
+        },
+        {
+          "category": "health",
+          "n": 400,
+          "correct": 353,
+          "accuracy": 0.8825
+        },
+        {
+          "category": "liability",
+          "n": 250,
+          "correct": 226,
+          "accuracy": 0.904
+        },
+        {
+          "category": "property",
+          "n": 500,
+          "correct": 435,
+          "accuracy": 0.87
+        },
+        {
+          "category": "travel",
+          "n": 150,
+          "correct": 134,
+          "accuracy": 0.8933333333333333
+        }
+      ],
+      "agent_assertion_rate": 0.042
+    },
+    "careful": {
+      "name": "Careful",
+      "summary": "Lower accuracy. Confidence ranks the cases it gets wrong.",
+      "accuracy": 0.82,
+      "n_correct": 1640,
+      "n": 2000,
+      "status": "go",
+      "policy_id": "threshold:-:tau=0.181829",
+      "policy": "Confidence threshold \u03c4\u22640.1818",
+      "family": "threshold",
+      "params": {
+        "tau": 0.1818289357292983
+      },
+      "calibration_lcb": 0.9975066699624814,
+      "holdout_n": 800,
+      "holdout_successes": 798,
+      "reliability": 0.9975,
+      "lcb": 0.9921513605801779,
+      "wilson_lcb": 0.9924739748130266,
+      "automation_rate": 0.82125,
+      "human_touch_rate": 0.17874999999999996,
+      "miss_rate": 0.0025,
+      "hours": 147.75,
+      "baseline_hours": 400.0,
+      "hours_ratio": 0.369375,
+      "dollars": 8126.25,
+      "baseline_dollars": 22000.0,
+      "savings_dollars": 13873.75,
+      "savings_hours": 252.25,
+      "breakeven_cases": 119.29170549860206,
+      "bootstrap_savings_dollars_p05": 12931.875,
+      "bootstrap_savings_dollars_p95": 14796.031249999998,
+      "a_h_min": 0.7641625362812073,
+      "lcb_by_human_accuracy": {
+        "1.00": 0.9921513605801779,
+        "0.98": 0.9885809466397342,
+        "0.95": 0.9832184466397342,
+        "0.90": 0.9742809466397342
+      },
+      "assertions": {
+        "agent_n": 800,
+        "agent_violations": 21,
+        "agent_rate": 0.02625,
+        "agent_upper": 0.03758174647484497,
+        "residual_n": 657,
+        "residual_violations": 9,
+        "residual_rate": 0.0136986301369863,
+        "residual_upper": 0.02378249446770791
+      },
+      "calibration_categories": [
+        {
+          "category": "auto_collision",
+          "n": 420,
+          "correct": 356,
+          "accuracy": 0.8476190476190476
+        },
+        {
+          "category": "health",
+          "n": 240,
+          "correct": 200,
+          "accuracy": 0.8333333333333334
+        },
+        {
+          "category": "liability",
+          "n": 150,
+          "correct": 115,
+          "accuracy": 0.7666666666666667
+        },
+        {
+          "category": "property",
+          "n": 300,
+          "correct": 247,
+          "accuracy": 0.8233333333333334
+        },
+        {
+          "category": "travel",
+          "n": 90,
+          "correct": 67,
+          "accuracy": 0.7444444444444445
+        }
+      ],
+      "book_categories": [
+        {
+          "category": "auto_collision",
+          "n": 700,
+          "correct": 587,
+          "accuracy": 0.8385714285714285
+        },
+        {
+          "category": "health",
+          "n": 400,
+          "correct": 327,
+          "accuracy": 0.8175
+        },
+        {
+          "category": "liability",
+          "n": 250,
+          "correct": 195,
+          "accuracy": 0.78
+        },
+        {
+          "category": "property",
+          "n": 500,
+          "correct": 418,
+          "accuracy": 0.836
+        },
+        {
+          "category": "travel",
+          "n": 150,
+          "correct": 113,
+          "accuracy": 0.7533333333333333
+        }
+      ],
+      "agent_assertion_rate": 0.0265
+    },
+    "health_blind": {
+      "name": "Health-blind",
+      "summary": "Same accuracy as Careful. Health claims fail at high confidence.",
+      "accuracy": 0.82,
+      "n_correct": 1640,
+      "n": 2000,
+      "status": "go",
+      "policy_id": "two_key:health|-:tau=0.493577",
+      "policy": "Two-key health \u03c4\u22640.4936",
+      "family": "two_key",
+      "params": {
+        "categories": [
+          "health"
+        ],
+        "amount_cutoff": null,
+        "tau": 0.4935771408681411
+      },
+      "calibration_lcb": 0.9975066699624814,
+      "holdout_n": 800,
+      "holdout_successes": 799,
+      "reliability": 0.99875,
+      "lcb": 0.9940840265904671,
+      "wilson_lcb": 0.9944168105948124,
+      "automation_rate": 0.73375,
+      "human_touch_rate": 0.26625,
+      "miss_rate": 0.00125,
+      "hours": 265.625,
+      "baseline_hours": 400.0,
+      "hours_ratio": 0.6640625,
+      "dollars": 14609.375,
+      "baseline_dollars": 22000.0,
+      "savings_dollars": 7390.625,
+      "savings_hours": 134.375,
+      "breakeven_cases": 212.8013300083126,
+      "bootstrap_savings_dollars_p05": 6055.15625,
+      "bootstrap_savings_dollars_p95": 8849.156249999998,
+      "a_h_min": 0.834407339211455,
+      "lcb_by_human_accuracy": {
+        "1.00": 0.9940840265904671,
+        "0.98": 0.98876404593495,
+        "0.95": 0.98077654593495,
+        "0.90": 0.9674640459349501
+      },
+      "assertions": {
+        "agent_n": 800,
+        "agent_violations": 40,
+        "agent_rate": 0.05,
+        "agent_upper": 0.06459230921041262,
+        "residual_n": 587,
+        "residual_violations": 5,
+        "residual_rate": 0.008517887563884156,
+        "residual_upper": 0.017825772122363574
+      },
+      "calibration_categories": [
+        {
+          "category": "auto_collision",
+          "n": 420,
+          "correct": 392,
+          "accuracy": 0.9333333333333333
+        },
+        {
+          "category": "health",
+          "n": 240,
+          "correct": 103,
+          "accuracy": 0.42916666666666664
+        },
+        {
+          "category": "liability",
+          "n": 150,
+          "correct": 141,
+          "accuracy": 0.94
+        },
+        {
+          "category": "property",
+          "n": 300,
+          "correct": 278,
+          "accuracy": 0.9266666666666666
+        },
+        {
+          "category": "travel",
+          "n": 90,
+          "correct": 83,
+          "accuracy": 0.9222222222222223
+        }
+      ],
+      "book_categories": [
+        {
+          "category": "auto_collision",
+          "n": 700,
+          "correct": 645,
+          "accuracy": 0.9214285714285714
+        },
+        {
+          "category": "health",
+          "n": 400,
+          "correct": 160,
+          "accuracy": 0.4
+        },
+        {
+          "category": "liability",
+          "n": 250,
+          "correct": 234,
+          "accuracy": 0.936
+        },
+        {
+          "category": "property",
+          "n": 500,
+          "correct": 462,
+          "accuracy": 0.924
+        },
+        {
+          "category": "travel",
+          "n": 150,
+          "correct": 139,
+          "accuracy": 0.9266666666666666
+        }
+      ],
+      "agent_assertion_rate": 0.0515
+    },
+    "scattered": {
+      "name": "Scattered",
+      "summary": "Careful's accuracy, with confidence unrelated to correctness.",
+      "accuracy": 0.82,
+      "n_correct": 1640,
+      "n": 2000,
+      "status": "reliability_only",
+      "policy_id": "sample_audit:p=1.00",
+      "policy": "Sample audit 100%",
+      "family": "sample_audit",
+      "params": {
+        "p": 1.0,
+        "salt": "scattered:7"
+      },
+      "calibration_lcb": 0.9975066699624814,
+      "holdout_n": 800,
+      "holdout_successes": 800,
+      "reliability": 1.0,
+      "lcb": 0.9962623371738993,
+      "wilson_lcb": 0.9966294695780308,
+      "automation_rate": 0.0,
+      "human_touch_rate": 1.0,
+      "miss_rate": 0.0,
+      "hours": 416.0,
+      "baseline_hours": 400.0,
+      "hours_ratio": 1.04,
+      "dollars": 22880.0,
+      "baseline_dollars": 22000.0,
+      "savings_dollars": -880.0,
+      "savings_hours": -16.0,
+      "breakeven_cases": null,
+      "bootstrap_savings_dollars_p05": -880.0,
+      "bootstrap_savings_dollars_p95": -880.0,
+      "a_h_min": 0.95,
+      "lcb_by_human_accuracy": {
+        "1.00": 0.9962623371738993,
+        "0.98": 0.98,
+        "0.95": 0.95,
+        "0.90": 0.9
+      },
+      "assertions": {
+        "agent_n": 800,
+        "agent_violations": 26,
+        "agent_rate": 0.0325,
+        "agent_upper": 0.0448107681859527,
+        "residual_n": 0,
+        "residual_violations": 0,
+        "residual_rate": 0.0,
+        "residual_upper": 0.0
+      },
+      "calibration_categories": [
+        {
+          "category": "auto_collision",
+          "n": 420,
+          "correct": 340,
+          "accuracy": 0.8095238095238095
+        },
+        {
+          "category": "health",
+          "n": 240,
+          "correct": 196,
+          "accuracy": 0.8166666666666667
+        },
+        {
+          "category": "liability",
+          "n": 150,
+          "correct": 122,
+          "accuracy": 0.8133333333333334
+        },
+        {
+          "category": "property",
+          "n": 300,
+          "correct": 257,
+          "accuracy": 0.8566666666666667
+        },
+        {
+          "category": "travel",
+          "n": 90,
+          "correct": 68,
+          "accuracy": 0.7555555555555555
+        }
+      ],
+      "book_categories": [
+        {
+          "category": "auto_collision",
+          "n": 700,
+          "correct": 570,
+          "accuracy": 0.8142857142857143
+        },
+        {
+          "category": "health",
+          "n": 400,
+          "correct": 330,
+          "accuracy": 0.825
+        },
+        {
+          "category": "liability",
+          "n": 250,
+          "correct": 202,
+          "accuracy": 0.808
+        },
+        {
+          "category": "property",
+          "n": 500,
+          "correct": 422,
+          "accuracy": 0.844
+        },
+        {
+          "category": "travel",
+          "n": 150,
+          "correct": 116,
+          "accuracy": 0.7733333333333333
+        }
+      ],
+      "agent_assertion_rate": 0.0285
+    }
+  },
+  "trap": {
+    "agent": "health_blind",
+    "policy": "Confidence threshold \u03c4\u22640.5679",
+    "policy_id": "threshold:-:tau=0.567889",
+    "automation_rate": 0.905,
+    "human_touch_rate": 0.09499999999999997,
+    "hours": 492.375,
+    "baseline_hours": 400.0,
+    "hours_ratio": 1.2309375,
+    "hours_increase": 0.23093750000000002,
+    "reliability": 0.87125,
+    "lcb": 0.8501262485021637,
+    "miss_rate": 0.12875,
+    "qualified": false,
+    "recommended_policy": "Two-key health \u03c4\u22640.4936",
+    "recommended_status": "go",
+    "recommended_hours": 265.625,
+    "recommended_hours_ratio": 0.6640625,
+    "recommended_lcb": 0.9940840265904671,
+    "recommended_human_touch_rate": 0.26625
+  },
+  "decision_flip": {
+    "careful_accuracy": 0.82,
+    "scattered_accuracy": 0.82,
+    "same_accuracy": true,
+    "careful_status": "go",
+    "scattered_status": "reliability_only",
+    "careful_hours_ratio": 0.369375,
+    "scattered_hours_ratio": 1.04,
+    "brash_accuracy": 0.88,
+    "brash_status": "reliability_only",
+    "brash_hours_ratio": 1.04
+  },
+  "evaluation": {
+    "reps": 1000,
+    "binomial": [
+      {
+        "n": 20,
+        "p": 0.7,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9645,
+        "wilson_coverage": 0.9645,
+        "clopper_pearson_mean_gap": 0.20359158660289148,
+        "wilson_mean_gap": 0.1797900628983939
+      },
+      {
+        "n": 20,
+        "p": 0.8,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9918,
+        "wilson_coverage": 0.9351,
+        "clopper_pearson_mean_gap": 0.1973397663870838,
+        "wilson_mean_gap": 0.17479748212278567
+      },
+      {
+        "n": 20,
+        "p": 0.9,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 1.0,
+        "wilson_coverage": 1.0,
+        "clopper_pearson_mean_gap": 0.17875603685916786,
+        "wilson_mean_gap": 0.15770871608229464
+      },
+      {
+        "n": 20,
+        "p": 0.95,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 1.0,
+        "wilson_coverage": 1.0,
+        "clopper_pearson_mean_gap": 0.161964673559443,
+        "wilson_mean_gap": 0.14160963801988852
+      },
+      {
+        "n": 40,
+        "p": 0.7,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9762,
+        "wilson_coverage": 0.9448,
+        "clopper_pearson_mean_gap": 0.13817372147608473,
+        "wilson_mean_gap": 0.12665068535658552
+      },
+      {
+        "n": 40,
+        "p": 0.8,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9737,
+        "wilson_coverage": 0.9737,
+        "clopper_pearson_mean_gap": 0.12968905660838992,
+        "wilson_mean_gap": 0.11916001554927919
+      },
+      {
+        "n": 40,
+        "p": 0.9,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9858,
+        "wilson_coverage": 0.9858,
+        "clopper_pearson_mean_gap": 0.11158686552604254,
+        "wilson_mean_gap": 0.10217400079896588
+      },
+      {
+        "n": 40,
+        "p": 0.95,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 1.0,
+        "wilson_coverage": 1.0,
+        "clopper_pearson_mean_gap": 0.09694015383958593,
+        "wilson_mean_gap": 0.08802587299503012
+      },
+      {
+        "n": 200,
+        "p": 0.7,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9634,
+        "wilson_coverage": 0.9496,
+        "clopper_pearson_mean_gap": 0.05735296063578012,
+        "wilson_mean_gap": 0.05523197840419327
+      },
+      {
+        "n": 200,
+        "p": 0.8,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9589,
+        "wilson_coverage": 0.9589,
+        "clopper_pearson_mean_gap": 0.052233290933185614,
+        "wilson_mean_gap": 0.050373243456380716
+      },
+      {
+        "n": 200,
+        "p": 0.9,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9701,
+        "wilson_coverage": 0.9449,
+        "clopper_pearson_mean_gap": 0.04233090666060415,
+        "wilson_mean_gap": 0.04074684803704657
+      },
+      {
+        "n": 200,
+        "p": 0.95,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9735,
+        "wilson_coverage": 0.9735,
+        "clopper_pearson_mean_gap": 0.033008233687130226,
+        "wilson_mean_gap": 0.031563155203776706
+      },
+      {
+        "n": 800,
+        "p": 0.7,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9471,
+        "wilson_coverage": 0.9471,
+        "clopper_pearson_mean_gap": 0.027529903665948336,
+        "wilson_mean_gap": 0.027022761788272124
+      },
+      {
+        "n": 800,
+        "p": 0.8,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9519,
+        "wilson_coverage": 0.9519,
+        "clopper_pearson_mean_gap": 0.02502523534872001,
+        "wilson_mean_gap": 0.024586757427950207
+      },
+      {
+        "n": 800,
+        "p": 0.9,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9591,
+        "wilson_coverage": 0.9475,
+        "clopper_pearson_mean_gap": 0.019078028699239802,
+        "wilson_mean_gap": 0.018710787309291273
+      },
+      {
+        "n": 800,
+        "p": 0.95,
+        "reps": 10000,
+        "alpha": 0.05,
+        "clopper_pearson_coverage": 0.9627,
+        "wilson_coverage": 0.9627,
+        "clopper_pearson_mean_gap": 0.014469523321619902,
+        "wilson_mean_gap": 0.014137596528395585
+      }
+    ],
+    "end_to_end": {
+      "reps": 1000,
+      "reported": 1000,
+      "n": 500,
+      "err_rate": 0.18,
+      "target": 0.95,
+      "alpha": 0.05,
+      "coverage": 1.0,
+      "mean_lcb": 0.9794523818468766,
+      "mean_true_reliability": 0.9966805179872062,
+      "oracle_tau": 0.18,
+      "mean_tau_gap": -0.003319482012793694,
+      "mean_relative_variable_cost_gap": 0.0995844603838108,
+      "mean_variable_hours_gap": 0.004481300717271487
+    },
+    "llm_runs": null,
+    "note": "No live model was called. Coverage is a property of the bound and the select-then-freeze procedure on a known Bernoulli process."
+  },
+  "llm_runs": null
+}
