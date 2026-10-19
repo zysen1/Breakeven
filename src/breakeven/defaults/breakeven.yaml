@@ -1,0 +1,42 @@
+# Breakeven study. Cost figures are customer inputs. The numbers below are the
+# synthetic Acme illustration, not an industry average.
+seed: 7
+dataset:
+  path: cases.jsonl
+  n_cases: 2000
+  generator: acme
+agents:
+  - brash
+  - careful
+  - health_blind
+  - scattered
+target:
+  reliability: 0.95
+  confidence: 0.95
+  human_accuracy: 1.0
+cost:
+  currency: USD
+  hourly_rate: 55.0
+  hours_per_case_human: 0.20
+  hours_per_review: 0.25
+  hours_per_exception: 0.50
+  hours_per_correction: 1.60
+  hours_per_audit: 0.20
+  hours_per_dual_review: 0.50
+  maintenance_hours: 16.0
+  human_maintenance_hours: 0.0
+  model_cost_per_case: 0.0
+  human_accuracy: 1.0
+assertions: assertions.yaml
+output_dir: .
+workers: 4
+bootstrap: 400
+split_fraction: 0.60
+risk_menu:
+  # Prior review rules supplied by the customer. The search does not add categories
+  # after seeing the holdout set.
+  categories:
+    - [health]
+    - [health, liability]
+    - [liability]
+  amount_cutoffs: [10000, 25000, 50000]

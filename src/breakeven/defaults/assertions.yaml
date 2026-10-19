@@ -1,0 +1,16 @@
+# State assertions for the Acme claims workflow.
+# `when` is the situation; `assert` must be true in that situation.
+# The language is comparisons, and/or/not, and list membership. No function calls.
+assertions:
+  - id: pay_only_after_approval
+    description: A payment is legal only after the claim has been approved.
+    when: "action == 'pay'"
+    assert: "state == 'approved' or state == 'payment_pending'"
+  - id: no_straight_through_high_value
+    description: Claims above 25000 cannot be paid straight from intake.
+    when: "amount > 25000 and action == 'pay'"
+    assert: "state != 'submitted' and state != 'pending_docs'"
+  - id: incomplete_file_not_approved
+    description: An incomplete file cannot be approved or paid.
+    when: "documents_complete == false and (action == 'approve' or action == 'pay')"
+    assert: "false"
